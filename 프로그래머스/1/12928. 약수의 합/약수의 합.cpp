@@ -1,16 +1,17 @@
 #include <string>
-#include <vector>
-#include <numeric>
+#include <cmath>
 
 using namespace std;
 
 int solution(int n) {
-    vector<int>v;
-    for(int i=1; i<=n; i++) {
+    int sum = 0;
+    for(int i=1; i<=sqrt(n); i++) {
         if(n % i == 0) {
-            v.push_back(i);
+            sum += i;
+            if(n != i*i) {
+                sum += n/i;
+            }
         }
     }
-    int sum = accumulate(v.begin(), v.end(), 0);
     return sum;
 }
