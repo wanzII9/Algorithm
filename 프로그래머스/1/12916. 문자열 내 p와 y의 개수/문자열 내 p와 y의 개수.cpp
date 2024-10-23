@@ -1,31 +1,26 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
-#include <string>
 
 using namespace std;
 
 bool solution(string s)
 {
-    bool answer = true;
-    int p = 0;
-    int y = 0;
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
     
-    transform(s.begin(), s.end(), s.begin(), ::toupper);
+    int pCount = 0;
+    int yCount = 0;
+    
     for(int i=0; i<s.length(); i++)
         
     {
-        if(s[i] == 'P') {
-            p++;
+        if(s[i] == 'p') {
+            pCount++;
         }
-        else if(s[i] == 'Y') {
-            y++;
+        else if(s[i] == 'y') {
+            yCount++;
         }
     }
     
-    if(p != y) {
-        answer = false;
-    }
-
-    return answer;
+    return pCount == yCount;
 }
