@@ -1,21 +1,10 @@
 #include <string>
 #include <vector>
-#include <cmath>
+#include <math.h>
 
 using namespace std;
 
 long long solution(long long n) {
-    long long answer = 0;
-    
-    long long root = sqrt(n);
-    
-    if(root * root == n) {
-        answer = (root+1) * (root+1);
-    }
-    
-    else {
-        answer = -1;
-    }
-    
-    return answer;
+    long long answer = sqrt(n);
+    return powl(answer, 2) == n ? powl(answer+1, 2) : -1;
 }
